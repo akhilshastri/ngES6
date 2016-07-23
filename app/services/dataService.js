@@ -17,7 +17,6 @@ class DataService extends Base  {
         return  ['$h'];
     }
 
-
     get http(){
 
     }
