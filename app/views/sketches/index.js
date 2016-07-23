@@ -6,14 +6,14 @@ import {controller, inject} from './../../ng-app';
 import 'ngtemplate?relativeTo=/app/!html!./view.html'
 import template from '!html!./view.html';
 import BaseController from '../common/BaseController';
+import '../../components/sketchListItem';
 
 
-@inject('$scope', '$injector','$state')
 @controller()
+@inject('$scope', '$injector','$state')
 class Controller extends BaseController {
     constructor() {
         super(arguments);
-        //debugger;
         this._msg = 'hello msg  AA';
     }
 
@@ -29,8 +29,4 @@ class Controller extends BaseController {
     }
 }
 
-export default {
-     template
-    ,controller:Controller,
-    controllerAs:'vw'
-}
+export default { url:'/sketchs', template: template, controller:Controller, controllerAs:'vm' };

@@ -7,9 +7,14 @@ class ConfigClass{
     @inject('$stateProvider', '$urlRouterProvider')
     @config()
     Routing(sp,urp){
-        debugger;
-        sp.state('sketchs', {templateUrl:'views/sketches/view.html'}) ;
 
+        // sp.state('sketchs', {
+        //     url:'/sketchs',
+        //     templateUrl: "views/sketches/view.html"
+        //     // template: '<h1>My Contacts</h1>'
+        // }) ;
+
+        sp.state('sketchs', sketches) ;
         urp.otherwise('/sketchs');
     }
 
