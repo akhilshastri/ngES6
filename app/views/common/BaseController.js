@@ -1,7 +1,7 @@
 /**
  * Created by Akhil on 23-07-2016.
  */
-import {DependenciesMissMatchException} from './../../common/appErrors';
+import {DependenciesMissMatchException} from 'common/appErrors';
 
 export default class BaseController {
     constructor(args){

@@ -2,11 +2,11 @@
  * Created by Akhil on 23-07-2016.
  */
 
-import {controller, inject} from './../../ng-app';
+import {controller, inject} from 'ng-app';
 import 'ngtemplate?relativeTo=/app/!html!./view.html'
 import template from '!html!./view.html';
 import BaseController from '../common/BaseController';
-import '../../components/sketchListItem';
+import 'components/sketchListItem';
 
 
 @controller()

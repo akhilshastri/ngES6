@@ -1,5 +1,5 @@
 import template from '!html!./view.html';
-import {directive, inject} from '../../ng-app';
+import {directive, inject} from 'ng-app';
 import './style.less';
 
 @directive({selector: 'app-header'})
