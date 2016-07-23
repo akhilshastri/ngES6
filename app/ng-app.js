@@ -5,6 +5,16 @@
 const App = angular.module('myApp', ['ui.router']);
 
 
+
+export function service(options) {
+    return function decorator(target) {
+        options = options ? options : {};
+        if (!options.name) {
+            throw new Error('@Service() must contains serviceName property!');
+        }
+        App.service(options.name, target);
+    };
+}
 export function directive(options) {
     return function decorator(target) {
         const directiveName = dashCaseToCamelCase(options.selector);

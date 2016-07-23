@@ -3,9 +3,8 @@
  */
 import {DependenciesMissMatchException} from 'common/appErrors';
 
-export default class BaseController {
+export default class Base {
     constructor(args){
-        //debugger;
         const deps =  this.mapDI;
         if(deps && deps.length>0 ){
             this.applyDIMappings(args,deps);
