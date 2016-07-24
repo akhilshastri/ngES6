@@ -3,21 +3,19 @@
  */
 
 import {service, inject} from 'ng-app';
-import Base from 'common/Base';
+import BaseDataService from './baseService';
+import {rest} from './decorator/rest';
 
-@service({name:'SketchDataService'})
 @inject('DataService')
-class SketchDataService extends Base  {
-    constructor() {
+@rest({endpoint:'sketch'})
+@service({name:'SketchDataService'})
+class SketchDataService extends BaseDataService  {
+    constructor(ds) {
         super(arguments);
-        debugger;
-    }
-    get mapDI(){
-        return  ['$h'];
+        this.ds= ds;
     }
 
-
-    get http(){
-
+    getEndPointService(){
+     return this.ds.getEndPointService() ;
     }
 }

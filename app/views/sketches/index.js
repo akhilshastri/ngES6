@@ -5,29 +5,29 @@
 import {controller, inject} from 'ng-app';
 import 'ngtemplate?relativeTo=/app/!html!./view.html'
 import template from '!html!./view.html';
-import Base from 'common/Base';
+import BaseController from '../common/BaseController';
 import 'components/sketchListItem';
 
 
 @controller()
-@inject('$scope', '$injector','$state','DataService')
-class Controller extends Base {
+@inject('$scope', '$injector', '$state', 'SketchDataService')
+class ViewController extends BaseController {
     constructor() {
         super(arguments);
-        this._msg = 'hello msg  AA';
-        debugger;
+        this.msg='hello akhil';
+        this.model = {sketches: []};
+        this.sds.getAll().then((data)=> {
+             this.$scope.$apply( ()=>{
+                 this.model.sketches = data;
+                 }
+             );
+        });
     }
 
-    get mapDI(){
-        return  ['$s', '$ig','$state','ds'];
-    }
-    get msg() {
-        return this._msg;
+    get mapDI() {
+        return ['$scope', '$ig', '$state', 'sds'];
     }
 
-    set msg(val) {
-        this._msg = val;
-    }
 }
 
-export default { url:'/sketchs', template: template, controller:Controller, controllerAs:'vm' };
+export default {url: '/sketches', template: template, controller: ViewController, controllerAs: 'vm'};

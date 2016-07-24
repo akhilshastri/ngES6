@@ -1,10 +1,8 @@
 /**
  * Created by Akhil on 24-07-2016.
  */
-import {model} from './model'
 import {InvalidArgumentTypeException} from 'common/appErrors';
 
-@model({endpoint:'sketch'})
 export  class SketchModel {
 
     constructor(sketch){

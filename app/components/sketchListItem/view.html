@@ -1,17 +1,25 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
-       <div class="box tmp">Sketch-icon</div>
+       <div class="box tmp">
+           {{title}}
+       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 ">
-       <div class="box tmp">Details</div>
+       <div class="box tmp">
+           {{author}}
+       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
         <div class="box tmp">
-            <a class="" href="#">
+            <a class="" ng-href="#/view/{{id}}">
+                View
+            </a>
+            &nbsp;
+            &nbsp;<a class="" ng-href="#/edit/{{id}}">
                 Edit
             </a>
             &nbsp;
-            <a class="" href="#">
+            <a class="" ng-href="#/delete/{{id}}">
                 Del
             </a>
         </div>

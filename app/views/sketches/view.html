@@ -1,8 +1,12 @@
-<div>
-<ul class="sketch-list">
-    <li> <sketch-list-item></sketch-list-item> </li>
-    <li> <sketch-list-item></sketch-list-item> </li>
-    <li> <sketch-list-item></sketch-list-item> </li>
-    <li> <sketch-list-item></sketch-list-item> </li>
+<div class="page">
+<ul class="sketch-list" ng-repeat="sketch in vm.model.sketches">
+    <li>
+        {{sketch}}
+        <sketch-list-item
+                title="sketch.title"
+                author="sketch.author"
+                id="sketch.id">
+        </sketch-list-item>
+    </li>
 </ul>
 </div>

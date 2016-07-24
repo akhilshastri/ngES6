@@ -3,21 +3,22 @@
  */
 
 import {service, inject} from 'ng-app';
-import Base from 'common/Base';
+import {MOCK_HTTP} from 'constants';
 
-@service({name:'DataService'})
-@inject('$http')
-class DataService extends Base  {
-    constructor() {
-        super(arguments);
-        debugger;
+@service({name: 'DataService'})
+@inject('$http', 'LocalDataService')
+class DataServiceAdaptor {
+    constructor(http, ld) {
+        this.http = http;
+        this.ld = ld;
     }
 
-    get mapDI(){
-        return  ['$h'];
-    }
-
-    get http(){
-
+    getEndPointService(){
+        if(!MOCK_HTTP){
+            throw new Error ('$http implementation is not supported');
+        }
+        return this.ld;
     }
 }
+
+
