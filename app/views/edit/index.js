@@ -59,7 +59,7 @@ class ViewController extends BaseController {
         const author = this.$rs.model.user;
         const items = this.model.items;
         const id = this.sparam.id;
-        if(id<=0) {
+        if(id<0) {
             this.sds.insert({title, author, items})
                 .then(()=>this.$state.go('sketches'));
         } else{

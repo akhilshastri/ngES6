@@ -26,11 +26,17 @@ class AppHeader {
         };
 
         scope.newSketch = ()=> {
-            this.rs.$state.go('edit',{id:-1});
+            this.rs.$state.go('edit', {id: -1});
         };
 
         scope.getUserLogin = ()=> !this.rs.model.user;
         scope.getUserName = ()=> this.rs.model.user;
+        scope.clearLS = ()=> {
+            window.localStorage.clear();
+            // this.rs.$state.go('sketches');
+            // this.rs.$state.reload(reload);
+            this.rs.$state.go('sketches', {}, {reload: true});
+        };
     }
 
     @inject('$rootScope')
