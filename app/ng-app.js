@@ -4,22 +4,14 @@
 
 const App = angular.module('myApp', ['ui.router']);
 
-App.run(['$rootScope','$state',(rs,$state)=>{
-    rs.model={};
+App.run(['$rootScope', '$state', (rs, $state)=> {
+    rs.model = {};
     rs.$state = $state;
-    // rs.$on('$stateChangeStart',
-    //     function(event, toState, toParams, fromState, fromParams, options){
-    //         debugger;
-    //         if(toState.name=='edit'){
-    //             if(!rs.model.user){
-    //                 alert('you should to login to edit' );
-    //                 event.preventDefault();
-    //             }
-    //         }
-    //
-    //     })
 }]);
 
+/**
+*  Javascript Decorator to register ng specific functionality
+* */
 export function service(options) {
     return function decorator(target) {
         options = options ? options : {};
@@ -36,23 +28,21 @@ export function directive(options) {
     };
 }
 
-export function controller (){
-    return function(target){
-        //const app = App;
-        App.controller(target.name,target);
+export function controller() {
+    return function (target) {
+        App.controller(target.name, target);
     }
 }
 
-export  function config() {
+export function config() {
     return function decorator(target, key, descriptor) {
-        //debugger;
         App.config(descriptor.value);
     };
 }
 
 export function inject(...dependencies) {
     return function decorator(target, key, descriptor) {
-        if(descriptor) {
+        if (descriptor) {
             const fn = descriptor.value;
             fn.$inject = dependencies;
         } else {
@@ -67,7 +57,7 @@ function pascalCaseToCamelCase(str) {
 }
 
 function dashCaseToCamelCase(string) {
-    return string.replace( /-([a-z])/ig, function( all, letter ) {
+    return string.replace(/-([a-z])/ig, function (all, letter) {
         return letter.toUpperCase();
     });
 }

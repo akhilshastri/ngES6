@@ -6,5 +6,4 @@ import 'configs';
 import 'services';
 import 'models';
 
-
-import './utils/animation-patch'
+import './utils/animation-patch';
