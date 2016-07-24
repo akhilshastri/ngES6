@@ -11,7 +11,7 @@ export default class BaseDataService {
         return srvc[method](this.buildGetAllURL());
     }
 
-    getModel(id) {
+    get(id) {
         const srvc  = this.getEndPointService();
         const method = this.methods.GET;
         return srvc[method](this.buildGetURL(id));
@@ -26,7 +26,7 @@ export default class BaseDataService {
     update(id, newModel) {
         const srvc  = this.getEndPointService();
         const method = this.methods.POST;
-        return srvc[method](this.buildUpdateURL(),newModel);
+        return srvc[method](this.buildUpdateURL(),id,newModel);
     }
 
     delete(id) {

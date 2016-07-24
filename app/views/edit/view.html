@@ -1,3 +1,20 @@
-<div class="page">
-    <tool-box tools="vm.model.tools"></tool-box>
+<div class="row">
+    <div class="" ng-show="!vm.model.readonly">
+        <tool-box tools="vm.model.tools"></tool-box>
+    </div>
+    <div class="">
+        <sketch-pad items="vm.model.items">
+
+        </sketch-pad>
+    </div>
+    <div class="" ng-show="!vm.model.readonly"  >
+        <attr-panel attrs="vm.model.activeAttrs">
+
+        </attr-panel>
+    </div>
+
+</div>
+
+<div class="row">
+        <a class="box" href="" ng-show="!vm.model.readonly" ng-click="vm.save()">Save</a>
 </div>

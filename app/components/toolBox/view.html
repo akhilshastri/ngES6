@@ -1,3 +1,5 @@
 <ul ng-repeat="tool in tools">
-    <li data-id="{{tool.id}}" data-attrs="{{tool.attr}}"> {{tool.name}}</li>
+    <li data-id="{{tool.id}}" data-attrs="{{tool.supportedAttr}}">
+        <a href="" ng-click="$parent.toolClick(tool.id,tool.name,tool.supportedAttr)"> {{tool.name}} </a>
+    </li>
 </ul>

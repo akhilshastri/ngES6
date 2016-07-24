@@ -23,11 +23,36 @@ class LocalDataService {
                     reject(new InvalidJSONException(e));
                 }
                 resolve(
-                    ( typeof id === 'undefined') ? data : data.find((x)=>x.id == id)
-                );
-
+                    ( typeof id === 'undefined') ? data : data[parseInt(id)]
+                )
             }
         );
+        return promise;
+    }
+
+    put(url,model){
+        debugger;
+       const promise = new Promise((resolve,reject)=> {
+           this.get(url).then((data)=> {
+               debugger;
+                data.push(model);
+               this.storage.setItem(url,JSON.stringify(data));
+               resolve();
+           })
+       });
+        return promise;
+    }
+
+    post(url,id,model){
+        debugger;
+        const promise = new Promise((resolve,reject)=> {
+            this.get(url).then((data)=> {
+                debugger;
+                data[id]=model;
+                this.storage.setItem(url,JSON.stringify(data));
+                resolve();
+            })
+        });
         return promise;
     }
 

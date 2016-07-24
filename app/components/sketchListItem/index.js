@@ -5,17 +5,27 @@ import './style.less';
 @directive({selector: 'sketch-list-item'})
 class SketchListItem {
 
-    constructor() {
+    constructor(rs) {
         this.replace = true;
         this.template = template;
         this.scope = {
-            author:"=",
-            title:"=",
-            id:"="
+            author: "=",
+            title: "=",
+            id: "="
+        };
+        this.rs = rs;
+        this.link = this.link.bind(this);
+    }
+
+    link(scope) {
+        scope.isValidUser = ()=> !!(this.rs.model.user && (scope.author == this.rs.model.user));
+        scope.showSketch=(id)=>{
+            this.rs.$state.go('edit',{id:id,readonly:true});
         };
     }
 
-    static directiveFactory() {
-        return new SketchListItem();
+    @inject('$rootScope')
+    static directiveFactory(rs) {
+        return new SketchListItem(rs);
     }
 }

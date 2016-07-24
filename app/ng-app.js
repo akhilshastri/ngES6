@@ -4,7 +4,21 @@
 
 const App = angular.module('myApp', ['ui.router']);
 
-
+App.run(['$rootScope','$state',(rs,$state)=>{
+    rs.model={};
+    rs.$state = $state;
+    // rs.$on('$stateChangeStart',
+    //     function(event, toState, toParams, fromState, fromParams, options){
+    //         debugger;
+    //         if(toState.name=='edit'){
+    //             if(!rs.model.user){
+    //                 alert('you should to login to edit' );
+    //                 event.preventDefault();
+    //             }
+    //         }
+    //
+    //     })
+}]);
 
 export function service(options) {
     return function decorator(target) {

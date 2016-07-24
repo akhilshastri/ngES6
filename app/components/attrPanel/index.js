@@ -2,25 +2,25 @@ import template from '!html!./view.html';
 import {directive, inject} from 'ng-app';
 import './style.less';
 
-@directive({selector: 'tool-box'})
-class ToolBox {
+@directive({selector: 'attr-panel'})
+class AttrPanel {
 
     constructor() {
         this.replace = true;
         this.template = template;
         this.scope={
-            tools:"="
+            attrs:"="
         };
         this.link = this.link.bind(this);
     }
 
     link(scope,el,attr){
-        scope.toolClick=(id,name,supportedAttr)=>{
-            scope.$emit('tool-dropped',{id,name,supportedAttr});
+        scope.valueChanged=(key,selectedValue)=>{
+            scope.$emit('active-tool-attribute-changed',{key,selectedValue});
         }
     }
 
     static directiveFactory() {
-        return new ToolBox();
+        return new AttrPanel();
     }
 }

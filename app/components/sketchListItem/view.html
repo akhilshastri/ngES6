@@ -11,15 +11,15 @@
     </div>
     <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 ">
         <div class="box tmp">
-            <a class="" ng-href="#/view/{{id}}">
+            <a class="" href="" ng-click="showSketch(id)">
                 View
             </a>
             &nbsp;
-            &nbsp;<a class="" ng-href="#/edit/{{id}}">
+            &nbsp;<a ng-show="isValidUser()" ng-href="#/edit/{{id}}">
                 Edit
             </a>
             &nbsp;
-            <a class="" ng-href="#/delete/{{id}}">
+            <a ng-show="isValidUser()" ng-href="#/delete/{{id}}">
                 Del
             </a>
         </div>

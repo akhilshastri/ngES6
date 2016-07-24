@@ -5,4 +5,5 @@ import './baseService';
 import './dataService';
 import './localDataService';
 import './sketchDataService';
+import './toolsDataService';
 import './decorator/rest';

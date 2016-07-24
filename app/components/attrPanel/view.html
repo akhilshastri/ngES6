@@ -1,0 +1,10 @@
+<ul ng-repeat="(key, value)  in attrs">
+    <li data-id="{{tool.id}}" data-attrs="{{tool.attr}}">
+        {{key}}
+        <select ng-options="o as o for o in value"
+                ng-model="selectedStyle"
+                ng-change="$parent.valueChanged(key,selectedStyle)">
+            <option value="">-- choose {{key}}  --</option>
+        </select>
+    </li>
+</ul>
