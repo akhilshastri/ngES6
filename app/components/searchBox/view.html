@@ -1,0 +1,30 @@
+<div class="column is-one-quarter">
+    <tabs on-tab-selected="tabSelected"/>
+    <div class="is-boxed">
+        <p class="control">
+            <input class="input is-medium" type="text" placeholder="Enter Origin City">
+        </p>
+        <p class="control">
+            <input class="input is-medium" type="text" placeholder="Enter Destination City">
+        </p>
+        <p class="control">
+            <date-box/>
+        </p>
+        <p class="control return-date hide">
+            <date-box/>
+        </p>
+
+        <p class="control">
+              <span class="select is-medium">
+                <select ng-model="noOfPassengers" ng-options="p for p in passengers">
+                  <option value="">Select Passengers</option>
+                </select>
+              </span>
+        </p>
+
+        <p class="control ">
+            <button class="button is-primary is-medium ">Submit</button>
+            <button class="button is-link is-medium ">Reset</button>
+        </p>
+    </div>
+</div>

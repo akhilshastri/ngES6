@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sketch Pad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <style>
+        select {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="myApp">
+
+    <div class="columns">
+        <div class="column ">
+
+            <div class="container">
+                <div class="notification is-primary ">
+                    <h3 class="title is-3"> Flight Search Engine
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="columns">
+        <div class="column is-one-quarter">
+            <div class="tabs is-boxed">
+                <ul>
+                    <li class="is-active">
+                        <a>
+                            <span class="icon is-small"><i class="fa fa-inbox"></i></span>
+                            <span>One Way</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <span class="icon is-small"><i class="fa fa-user"></i></span>
+                            <span>Return</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="is-boxed">
+                <p class="control">
+                    <input class="input is-medium" type="text" placeholder="Enter Origin City">
+                </p>
+                <p class="control">
+                    <input class="input is-medium" type="text" placeholder="Enter Destination City">
+                </p>
+                <p class="control">
+                    <select class="select is-medium is-outline">
+                        <option>Departure Date</option>
+                        <option>With options</option>
+                    </select>
+                    <!--<span class="select is-medium">-->
+
+                    <!--</span>-->
+                </p>
+                <p class="control">
+                      <span class="select is-medium">
+                        <select>
+                          <option>Return Date</option>
+                          <option>With options</option>
+                        </select>
+                      </span>
+                </p>
+                <p class="control">
+                      <span class="select is-medium">
+                        <select>
+                          <option>Passengers</option>
+                          <option>With options</option>
+                        </select>
+                      </span>
+                </p>
+                <p class="control ">
+                    <button class="button is-primary is-medium ">Submit</button>
+                    <button class="button is-link is-medium ">Reset</button>
+                </p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="container">
+                <div class="notification is-primary ">
+                    <h4 class="title is-4">Pune > Delhi > Pune</h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<app-header></app-header>-->
+    <!--<ui-view></ui-view>-->
+    <!--<app-footer></app-footer>-->
+</div>
+<script src="/lib/jquery.js"></script>
+<script src="/lib/angular.js"></script>
+<script src="/lib/ui-router.js"></script>
+<script src="/static/bundle.js"></script>
+</body>
+</html>

@@ -1,9 +1,0 @@
-<div class="sketch-pad">
-<ul ng-repeat="itm in items">
-    <li ng-class="{active:itm.active}"
-        data-id="{{itm.id}}"
-        >
-       <a href=""  ng-click = "$parent.activeItemChanged($index,itm)">{{itm.name}} {{itm.attrs}} </a>
-    </li>
-</ul>
-</div>

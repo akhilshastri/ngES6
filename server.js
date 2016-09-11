@@ -1,7 +1,10 @@
+var jsonServer = require('json-server');
+
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
 var webpackHotMiddleware = require('webpack-hot-middleware')
 var config = require('./webpack.config');
+var apis = require('./proxy-api');
 
 var app = new (require('express'))();
 var port = 7070;
@@ -24,10 +27,14 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + '/index.html')
 });
 
+apis.jsonServer("API Server running @ 3000");
+
 app.listen(port, function(error) {
   if (error) {
     console.error(error)
   } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
+    console.info("UI Server Listening on port %s.", port, port)
   }
-})
+});
+
+apis.proxyServer("Open up http://localhost:5050/ in your browser");

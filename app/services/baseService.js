@@ -4,13 +4,11 @@
 import {InvalidEndpointsException} from 'common/appErrors';
 
 export default class BaseDataService {
-
     getAll() {
         const srvc  = this.getEndPointService();
         const method = this.methods.GET;
         return srvc[method](this.buildGetAllURL());
     }
-
     get(id) {
         const srvc  = this.getEndPointService();
         const method = this.methods.GET;
