@@ -30,17 +30,13 @@ class SearchBox {
             } else {
                 $return.animateCss('fadeIn');
                 $return.removeClass('hide');
-                //$return.datePicker();
             }
         };
         scope.$watch(()=> form.$pristine ||Object.keys(form.$error).length, (nv)=>{
             let formEr = [];
             if(!form.$pristine){
                 Object.keys(form.$error).forEach((key)=>{
-                    debugger;
-
                     form.$error[key].forEach((er)=>{
-                        debugger;
                         formEr.push({name:er.$name,key:key});
                     })
                 });
