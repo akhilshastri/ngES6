@@ -1,6 +1,5 @@
 <div class="columns">
     <div class="notification is-danger error-container" ng-show="vm.form.errors.length>0">
-        <!--<button class="delete"></button>-->
         <ul ng-repeat="err in vm.form.errors">
             <li> {{ vm.model.errorDictionary[ err.key + err.name] || err.key + err.name }}</li>
         </ul>
