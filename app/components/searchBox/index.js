@@ -14,6 +14,7 @@ class SearchBox {
         this.template = template;
         this.scope = {
             onSubmit:"&",
+            onReset:"&",
             formModel:"=ngModel",
             searchForm:"=?form"
         };

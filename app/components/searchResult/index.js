@@ -9,6 +9,9 @@ class SearchResult {
     constructor() {
         this.replace = true;
         this.template = template;
+        this.scope={
+            flightResult:'=ngModel'
+        };
         this.link = this.link.bind(this);
     }
 

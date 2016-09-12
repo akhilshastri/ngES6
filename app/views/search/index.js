@@ -38,11 +38,21 @@ class ViewController extends BaseController {
             flightResult:[]
         }
     }
-
+    onResetClick(){
+        var conf = confirm('This will clear the search form');
+        if(conf){
+            if(this.form && this.form.ngForm){
+                this.form.ngForm.$setPristine();
+            }
+            this.model.search={isReturn:false};
+            this.model.flightResult=[];
+        }
+    }
     onSubmitClick(){
         alert('submit clicked');
         this.fds.findFlights({origin:'pune',rtn:'true'}).then((result)=>{
-            debugger;
+            this.model.flightResult=[1,2,3];
+
         });
     }
     init() {   // default init

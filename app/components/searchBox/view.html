@@ -50,8 +50,10 @@
         </p>
 
         <p class="control ">
-            <button class="button is-primary is-medium " ng-click="onSubmit()">Submit</button>
-            <button class="button is-link is-medium ">Reset</button>
+            <button class="button is-primary is-medium " ng-disabled="flightSearch.$invalid" ng-click="onSubmit()">
+                Submit
+            </button>
+            <button class="button is-link is-medium " ng-click="onReset()">Reset</button>
         </p>
     </div>
     </form>

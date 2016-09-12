@@ -8,6 +8,9 @@ class SearchItem {
     constructor() {
         this.replace = true;
         this.template = template;
+        this.scope={
+            resultItems:'=ngModel'
+        };
         this.link = this.link.bind(this);
     }
 

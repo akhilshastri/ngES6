@@ -7,6 +7,8 @@
     </div>
 </div>
 <div class="columns">
-    <search-box on-submit="vm.onSubmitClick()" ng-model="vm.model.search" form="vm.form"/>
-    <search-result />
+    <search-box on-submit="vm.onSubmitClick()"
+                on-reset = "vm.onResetClick()"
+                ng-model="vm.model.search" form="vm.form"/>
+    <search-result ng-model="vm.model.flightResult" />
 </div>
