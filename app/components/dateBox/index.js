@@ -9,10 +9,9 @@ class AppHeader {
     constructor() {
         this.replace = true;
         this.template = template;
-        // this.scope = {
-        //     tip:'=',
-        //     dateOptions:[]
-        // };
+        this.scope = {
+            ngModel:"="
+        };
         this.link = this.link.bind(this);
     }
 

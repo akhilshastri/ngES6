@@ -4,11 +4,13 @@
 import {InvalidEndpointsException} from 'common/appErrors';
 
 export default class BaseDataService {
-    getAll() {
+    getAll(query) {
+        debugger;
         const srvc  = this.getEndPointService();
         const method = this.methods.GET;
-        return srvc[method](this.buildGetAllURL());
+        return srvc[method](this.buildGetAllURL(query));
     }
+
     get(id) {
         const srvc  = this.getEndPointService();
         const method = this.methods.GET;
@@ -33,13 +35,12 @@ export default class BaseDataService {
         return srvc[method](this.buildDeleteURL());
     }
 
-    buildGetAllURL() {
-        return `${this.getEndPointURL()}`;
+    buildGetAllURL(query) {
+        return query ? `${this.getEndPointURL()}?${query}` : `${this.getEndPointURL()}`;
     }
 
     buildGetURL(id) {
         return `${this.getEndPointURL()}/${id}`;
-
     }
 
     getEndPointURL() {

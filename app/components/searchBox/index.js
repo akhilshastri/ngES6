@@ -12,10 +12,16 @@ class SearchBox {
     constructor() {
         this.replace = true;
         this.template = template;
+        this.scope = {
+            onSubmit:"&",
+            formModel:"=ngModel",
+            searchForm:"=?form"
+        };
         this.link = this.link.bind(this);
     }
 
     link(scope, el, attr) {
+        const form = scope.flightSearch;
         scope.passengers = [1,2,3,4,5,6,7,8,9,10];
         scope.tabSelected = (e, arg)=> {
             const $return = $('.return-date', el);
@@ -24,13 +30,23 @@ class SearchBox {
             } else {
                 $return.animateCss('fadeIn');
                 $return.removeClass('hide');
-                $return.datePicker();
+                //$return.datePicker();
             }
-        }
+        };
+        scope.$watch(()=> form.$pristine ||Object.keys(form.$error).length, (nv)=>{
+            let formEr = [];
+            if(!form.$pristine){
+                Object.keys(form.$error).forEach((key)=>{
+                    debugger;
 
-        $(document).ready(function() {
-            $(".js-example-basic-single").select2();
-        });
+                    form.$error[key].forEach((er)=>{
+                        debugger;
+                        formEr.push({name:er.$name,key:key});
+                    })
+                });
+            }
+            scope.searchForm = { errors: formEr,ngForm:form};
+        })
     }
 
     static directiveFactory() {

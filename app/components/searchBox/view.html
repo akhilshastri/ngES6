@@ -1,30 +1,58 @@
 <div class="column is-one-quarter">
     <tabs on-tab-selected="tabSelected"/>
+
+    <form name="flightSearch"  novalidate>
+
     <div class="is-boxed">
         <p class="control">
-            <input class="input is-medium" type="text" placeholder="Enter Origin City">
+            {{formModel}}
+            <input class="input is-medium" type="text"
+                   name="origin"
+                   placeholder="Enter Origin City" ng-model="formModel.origin"
+                   required
+                   ng-minlength="3"
+                   ng-maxlength="8"
+            />
+            {{formModel.origin}}
         </p>
         <p class="control">
-            <input class="input is-medium" type="text" placeholder="Enter Destination City">
+            <input class="input is-medium" type="text" placeholder="Enter Destination City"
+                   required
+                   name="destination"
+                   ng-minlength="3"
+                   ng-maxlength="8"
+                   ng-model="formModel.destination">
+            {{formModel.destination}}
         </p>
         <p class="control">
-            <date-box/>
+            <date-box
+                    required
+                    name="jurny-date"
+                ng-model="formModel.jDate"
+            />
         </p>
         <p class="control return-date hide">
-            <date-box/>
+            <date-box
+                    name="return-date"
+                ng-model="formModel.rDate"
+            />
         </p>
 
         <p class="control">
               <span class="select is-medium">
-                <select ng-model="noOfPassengers" ng-options="p for p in passengers">
+                <select ng-model="formModel.noOfPassengers"
+                        required
+                        name="noOfPassengers"
+                        ng-options="p for p in passengers">
                   <option value="">Select Passengers</option>
                 </select>
               </span>
         </p>
 
         <p class="control ">
-            <button class="button is-primary is-medium ">Submit</button>
+            <button class="button is-primary is-medium " ng-click="onSubmit()">Submit</button>
             <button class="button is-link is-medium ">Reset</button>
         </p>
     </div>
+    </form>
 </div>

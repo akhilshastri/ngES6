@@ -13,13 +13,38 @@ import 'components/searchBox';
 import 'components/searchResult';
 
 @controller()
-@inject('$scope', '$injector', '$state', 'ToolsDataService', 'SketchDataService', '$stateParams', '$rootScope')
+@inject('$scope', '$injector', '$state', '$stateParams', '$rootScope','FlightsDataService')
 class ViewController extends BaseController {
     constructor() {
         super(arguments);
       //  this.init();
+        this.model={
+            errorDictionary:{
+                'requireddestination':'Destination is require',
+                'requiredorigin':'Origin is require',
+                'requirednoOfPassengers':'No of passengers is require',
+                'requiredjurny-date':'Journey date is require',
+                'requiredreturn-date':'Return date is require',
+                "minlengthorigin" : "Minimum length for Origin is 3",
+                "minlengthdestination" : "Minimum length for Destination is 3",
+                "maxlengthorigin" : "Maximum length for Origin is 8",
+                "maxlengthdestination" : "Maximum length for Destination is 8"
+            },
+            search:{
+                origin:'',
+                destination:'',
+                isReturn:false
+            },
+            flightResult:[]
+        }
     }
 
+    onSubmitClick(){
+        alert('submit clicked');
+        this.fds.findFlights({origin:'pune',rtn:'true'}).then((result)=>{
+            debugger;
+        });
+    }
     init() {   // default init
         this.model = {
             readonly: true,
@@ -94,7 +119,7 @@ class ViewController extends BaseController {
     }
 
     get mapDI() {
-        return ['$scope', '$ig', '$state', 'tds', 'sds', 'sparam', '$rs'];
+        return ['$scope', '$ig', '$state', 'sparam', '$rs','fds'];
     }
 
 }

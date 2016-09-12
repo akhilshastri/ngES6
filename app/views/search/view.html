@@ -1,4 +1,12 @@
 <div class="columns">
-    <search-box/>
-    <search-result/>
+    <div class="notification is-danger error-container" ng-show="vm.form.errors.length>0">
+        <!--<button class="delete"></button>-->
+        <ul ng-repeat="err in vm.form.errors">
+            <li> {{ vm.model.errorDictionary[ err.key + err.name] || err.key + err.name }}</li>
+        </ul>
+    </div>
+</div>
+<div class="columns">
+    <search-box on-submit="vm.onSubmitClick()" ng-model="vm.model.search" form="vm.form"/>
+    <search-result />
 </div>

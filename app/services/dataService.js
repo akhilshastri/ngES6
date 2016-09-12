@@ -14,8 +14,9 @@ class DataServiceAdaptor {
     }
 
     getEndPointService(){
+        debugger;
         if(!MOCK_HTTP){
-            throw new Error ('$http implementation is not supported');
+            return this.http;
         }
         return this.ld;
     }
